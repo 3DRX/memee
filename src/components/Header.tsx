@@ -1,5 +1,5 @@
-import { Breadcrumb } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { Breadcrumb, ConfigProvider } from 'antd';
+import { GithubOutlined, HomeOutlined } from '@ant-design/icons';
 import React from 'react';
 import { THREE_BUTTONS } from '../consts';
 
@@ -19,22 +19,60 @@ const Header: React.FC<{ name: string }> = props => {
     <div
       style={{
         position: 'fixed',
-        top: '1em',
-        left: '1em',
+        top: '2em',
+        left: '2em',
+        width: 'calc(100% - 4em)',
+        display: 'flex',
       }}
     >
-      <Breadcrumb
-        items={[
-          {
-            href: '/',
-            title: <HomeOutlined />,
+      <ConfigProvider
+        theme={{
+          token: {
+            fontSize: 20,
           },
-          {
-            title: <a href="">{props.name}</a>,
-            menu: { items: menuItems },
+          components: {
+            Breadcrumb: {
+              iconFontSize: 20,
+            },
           },
-        ]}
-      />
+        }}
+      >
+        <Breadcrumb
+          items={
+            props.name !== ''
+              ? [
+                  {
+                    href: '/',
+                    title: <HomeOutlined />,
+                  },
+                  {
+                    title: <a href="">{props.name}</a>,
+                    menu: { items: menuItems },
+                  },
+                ]
+              : [
+                  {
+                    href: '/',
+                    title: <HomeOutlined />,
+                  },
+                ]
+          }
+        />
+        <div
+          style={{
+            marginLeft: 'auto',
+          }}
+        >
+          <Breadcrumb
+            items={[
+              {
+                href: 'https://github.com/3DRX',
+                title: <GithubOutlined />,
+              },
+            ]}
+          />
+        </div>
+      </ConfigProvider>
     </div>
   );
 };

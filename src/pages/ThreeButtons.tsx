@@ -2,11 +2,12 @@ import { useState } from 'react';
 import Switch from '@mui/material/Switch';
 import Header from '../components/Header';
 import { THREE_BUTTONS } from '../consts';
+import Footer from '../components/Footer';
 
 function ThreeButtons() {
-  const [checked1, setchecked1] = useState<Boolean>(false);
-  const [checked2, setchecked2] = useState<Boolean>(false);
-  const [checked3, setchecked3] = useState<Boolean>(false);
+  const [checked1, setchecked1] = useState<boolean>(false);
+  const [checked2, setchecked2] = useState<boolean>(false);
+  const [checked3, setchecked3] = useState<boolean>(false);
   const [queue, setqueue] = useState<number[]>([]);
 
   function toogleSwitch(n: number) {
@@ -53,6 +54,7 @@ function ThreeButtons() {
         <Switch checked={checked2} onChange={() => handleSwitchChange(2)} />
         <Switch checked={checked3} onChange={() => handleSwitchChange(3)} />
       </div>
+      <Footer />
     </>
   );
 }
