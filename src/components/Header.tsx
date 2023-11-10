@@ -1,20 +1,11 @@
 import { Breadcrumb, ConfigProvider } from 'antd';
 import { GithubOutlined, HomeOutlined } from '@ant-design/icons';
 import React from 'react';
-import { THREE_BUTTONS } from '../consts';
-
-const menuItems = [
-  {
-    key: '1',
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="/threebuttons">
-        {THREE_BUTTONS}
-      </a>
-    ),
-  },
-];
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC<{ name: string }> = props => {
+  const location = useLocation();
+
   return (
     <div
       style={{
@@ -45,27 +36,18 @@ const Header: React.FC<{ name: string }> = props => {
             marginLeft: '2em',
           }}
         >
-          <Breadcrumb
-            items={
-              props.name !== ''
-                ? [
-                    {
-                      href: '/',
-                      title: <HomeOutlined />,
-                    },
-                    {
-                      title: <a href="">{props.name}</a>,
-                      menu: { items: menuItems },
-                    },
-                  ]
-                : [
-                    {
-                      href: '/',
-                      title: <HomeOutlined />,
-                    },
-                  ]
-            }
-          />
+          <Breadcrumb>
+            <Breadcrumb.Item>
+              <Link to="/">
+                <HomeOutlined />
+              </Link>
+            </Breadcrumb.Item>
+            {props.name === '' ? null : (
+              <Breadcrumb.Item>
+                <Link to={location}>{props.name}</Link>
+              </Breadcrumb.Item>
+            )}
+          </Breadcrumb>
         </div>
         <div
           style={{

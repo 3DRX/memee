@@ -3,9 +3,12 @@ import thumb_threebuttons from '../assets/switches.png';
 import { THREE_BUTTONS } from '../consts';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const { Meta } = Card;
 function Main() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Header name="" />
@@ -23,7 +26,7 @@ function Main() {
           style={{ width: 240 }}
           cover={<img alt="example" src={thumb_threebuttons} />}
           onClick={() => {
-            window.location.href = '/threebuttons';
+            navigate('/threebuttons');
           }}
         >
           <Meta

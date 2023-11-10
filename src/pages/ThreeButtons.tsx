@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { THREE_BUTTONS } from '../consts';
 import Footer from '../components/Footer';
 import { Input, Button } from 'antd';
+import CSS from 'csstype';
 
 function ThreeButtons() {
   const [checked1, setchecked1] = useState<boolean>(false);
@@ -41,7 +42,7 @@ function ThreeButtons() {
     }
   }
 
-  const itemStyle: any = {
+  const itemStyle: CSS.Properties = {
     display: 'flex',
     flexDirection: 'row',
     marginTop: '1em',
