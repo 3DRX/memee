@@ -4,12 +4,8 @@ function Footer() {
   return (
     <div
       style={{
-        position: 'fixed',
-        bottom: '2em',
-        left: '2em',
-        width: 'calc(100% - 4em)',
-        display: 'flex',
         justifyContent: 'center',
+        marginTop: '10em',
       }}
     >
       <h4>

@@ -19,10 +19,12 @@ const Header: React.FC<{ name: string }> = props => {
     <div
       style={{
         position: 'fixed',
-        top: '2em',
-        left: '2em',
-        width: 'calc(100% - 4em)',
+        top: '0em',
+        left: '0',
+        height: '3em',
+        width: '100%',
         display: 'flex',
+        backgroundColor: '#fff',
       }}
     >
       <ConfigProvider
@@ -37,30 +39,39 @@ const Header: React.FC<{ name: string }> = props => {
           },
         }}
       >
-        <Breadcrumb
-          items={
-            props.name !== ''
-              ? [
-                  {
-                    href: '/',
-                    title: <HomeOutlined />,
-                  },
-                  {
-                    title: <a href="">{props.name}</a>,
-                    menu: { items: menuItems },
-                  },
-                ]
-              : [
-                  {
-                    href: '/',
-                    title: <HomeOutlined />,
-                  },
-                ]
-          }
-        />
         <div
           style={{
+            marginTop: '1em',
+            marginLeft: '2em',
+          }}
+        >
+          <Breadcrumb
+            items={
+              props.name !== ''
+                ? [
+                    {
+                      href: '/',
+                      title: <HomeOutlined />,
+                    },
+                    {
+                      title: <a href="">{props.name}</a>,
+                      menu: { items: menuItems },
+                    },
+                  ]
+                : [
+                    {
+                      href: '/',
+                      title: <HomeOutlined />,
+                    },
+                  ]
+            }
+          />
+        </div>
+        <div
+          style={{
+            marginTop: '1em',
             marginLeft: 'auto',
+            marginRight: '2em',
           }}
         >
           <Breadcrumb
