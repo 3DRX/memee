@@ -1,5 +1,6 @@
 import { Card } from 'antd';
 import thumb_threebuttons from '../assets/three_buttons.png';
+import { THREE_BUTTONS } from '../consts';
 
 const { Meta } = Card;
 function Main() {
@@ -15,7 +16,7 @@ function Main() {
           window.location.href = '/threebuttons';
         }}
       >
-        <Meta title="Three Button" description="www.instagram.com" />
+        <Meta title={THREE_BUTTONS} description="Ordinary 3 switch-buttons." />
       </Card>
     </>
   );

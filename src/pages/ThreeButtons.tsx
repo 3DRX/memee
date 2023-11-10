@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Switch from '@mui/material/Switch';
 import Header from '../components/Header';
+import { THREE_BUTTONS } from '../consts';
 
 function ThreeButtons() {
   const [checked1, setchecked1] = useState<Boolean>(false);
@@ -9,7 +10,7 @@ function ThreeButtons() {
 
   return (
     <>
-      <Header name='Three Buttons' />
+      <Header name={THREE_BUTTONS} />
       <div
         style={{
           display: 'flex',

@@ -1,13 +1,14 @@
 import { Breadcrumb } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 import React from 'react';
+import { THREE_BUTTONS } from '../consts';
 
 const menuItems = [
   {
     key: '1',
     label: (
       <a target="_blank" rel="noopener noreferrer" href="/threebuttons">
-        Three Buttons
+        {THREE_BUTTONS}
       </a>
     ),
   },
