@@ -7,6 +7,36 @@ function ThreeButtons() {
   const [checked1, setchecked1] = useState<Boolean>(false);
   const [checked2, setchecked2] = useState<Boolean>(false);
   const [checked3, setchecked3] = useState<Boolean>(false);
+  const [queue, setqueue] = useState<number[]>([]);
+
+  function toogleSwitch(n: number) {
+    if (n === 1) {
+      setchecked1(!checked1);
+    } else if (n === 2) {
+      setchecked2(!checked2);
+    } else {
+      setchecked3(!checked3);
+    }
+  }
+
+  function handleSwitchChange(n: number) {
+    if (queue.find((item: number) => item === n)) {
+      setqueue(queue.filter((item: number) => item !== n));
+      toogleSwitch(n);
+    } else {
+      if (queue.length === 2) {
+        const temp: number | undefined = queue.shift();
+        if (temp !== undefined) {
+          toogleSwitch(temp);
+          toogleSwitch(n);
+          queue.push(n);
+        }
+      } else {
+        queue.push(n);
+        toogleSwitch(n);
+      }
+    }
+  }
 
   return (
     <>
@@ -19,9 +49,9 @@ function ThreeButtons() {
           justifyContent: 'center',
         }}
       >
-        <Switch checked={checked1} onChange={() => setchecked3(!checked3)} />
-        <Switch checked={checked2} onChange={() => setchecked1(!checked1)} />
-        <Switch checked={checked3} onChange={() => setchecked2(!checked2)} />
+        <Switch checked={checked1} onChange={() => handleSwitchChange(1)} />
+        <Switch checked={checked2} onChange={() => handleSwitchChange(2)} />
+        <Switch checked={checked3} onChange={() => handleSwitchChange(3)} />
       </div>
     </>
   );
