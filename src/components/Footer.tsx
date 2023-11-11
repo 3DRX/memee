@@ -5,7 +5,7 @@ function Footer() {
     <div
       style={{
         justifyContent: 'center',
-        marginTop: '10em',
+        marginTop: '5em',
       }}
     >
       <h4>

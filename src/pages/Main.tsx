@@ -1,6 +1,7 @@
 import { Card } from 'antd';
 import thumb_threebuttons from '../assets/switches.png';
-import { THREE_BUTTONS } from '../consts';
+import thumb_AD from '../assets/AD.jpg';
+import { AD, THREE_BUTTONS } from '../consts';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
@@ -19,21 +20,43 @@ function Main() {
           alignItems: 'center',
         }}
       >
-        <h1 className="title">memee</h1>
-        <h2>An animation & meme generator.</h2>
-        <Card
-          hoverable
-          style={{ width: 240 }}
-          cover={<img alt="example" src={thumb_threebuttons} />}
-          onClick={() => {
-            navigate('/threebuttons');
+        <h1 style={{ marginTop: '0em' }} className="title">
+          memee
+        </h1>
+        <h2 style={{ marginTop: '0em' }}>An animation & meme generator.</h2>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: 15,
           }}
         >
-          <Meta
-            title={THREE_BUTTONS}
-            description="Ordinary 3 switch-buttons."
-          />
-        </Card>
+          <Card
+            hoverable
+            style={{ width: 240 }}
+            cover={<img alt={THREE_BUTTONS} src={thumb_threebuttons} />}
+            onClick={() => {
+              navigate('/threebuttons');
+            }}
+          >
+            <Meta
+              title={THREE_BUTTONS}
+              description="Ordinary 3 switch-buttons."
+            />
+          </Card>
+          <Card
+            hoverable
+            style={{ width: 240 }}
+            cover={<img alt={AD} src={thumb_AD} />}
+            onClick={() => {
+              navigate('/ad');
+            }}
+          >
+            <Meta title={AD} description="Anthony Davis in the corner." />
+          </Card>
+        </div>
         <Footer />
       </div>
     </>
